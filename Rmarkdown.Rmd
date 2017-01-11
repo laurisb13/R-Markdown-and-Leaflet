@@ -1,0 +1,20 @@
+---
+
+## 11th January 2017 (11/01/2017)
+
+```{r, echo=FALSE}
+options(warn=-1)
+library(leaflet)
+cities <- data.frame(name = c("Bern", "Geneva", "Lausanne", "My favourite spot were I used to live", "Gruyeres", "Montreux castle", "Zurich", "Rhine Falls", "Lucerne", "Interlaken-Harder Kulm", "Grindelwald", "Les Diablerets", "Glacier Aletsch", "Zermatt- Matternhorn", "Munster-Geschinen", "Heidi-house", "Appenzell","Lake Konstanz", "Lugano", "Locarno", "San Bernardino Pass", "Basel"),
+                        lat = c(46.9547658, 46.2045749, 46.5172572, 46.513581, 46.5823007, 46.4142168, 47.3775499, 47.6822468, 47.0499105, 46.6934654, 46.6197715, 46.3550979, 46.391667, 45.9907379, 46.4875027, 47.0016268, 47.3333366, 47.653876, 46.0027897, 46.1634482, 46.4959037, 47.5546676),
+                        lng = c(7.3248303, 6.145515, 6.6278951, 6.570771, 7.0780613, 6.9253037, 8.4666752, 8.613286, 8.2968529, 7.8390749, 7.9707352, 7.1841827, 8.0305262, 7.6018614, 8.2647526, 9.4955003, 9.4144783, 9.167651, 8.9474242, 8.7915888, 9.1686013, 7.5594405),
+                     col = c("red", "red", "red", "blue", "green", "blue", "red", "blue", "red", "blue", "green", "green", "blue", "blue", "green", "green", "green", "blue", "red", "red", "blue", "red"))
+
+cities %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(color = cities$col, popup = cities$name, lat=cities$lat, lng=cities$lng) %>%
+  addLegend(labels = c("Must-see landscape", "Must-see cities", "Must-see little towns"), colors = c("blue", "red", "green"))
+
+```
+
